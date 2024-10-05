@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #1748f8, #b3bff7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 80px;
+    align-items: center;
+    overflow: hidden;
+    overflow-y: auto;
+    /* To contain bubbles */
+}
+
+/* Add to existing CSS file */
+
+/* Hero Section Styles */
+.hero {
+    background-image: linear-gradient(to bottom, #f7f7f7, #ececec);
+    background-size: 100% 300px;
+    background-position: 0% 100%;
+    padding: 100px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero button {
+    background-color: #1748f8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* Features Section Styles */
+.features {
+    padding: 30px;
+}
+
+.features ul {
+    list-style: none;
+    /* margin: 0; */
+    /* padding: 0; */
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+
+.features li {
+    margin: 10px;
+    columns: 100px;
+    border: 3px dashed white;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    grid: 300px;
+    /* flex-wrap: wrap; */
+    /* width: calc(33.33% - 20px); */
+}
+
+.features img {
+    width: 80px;
+    height: 80px;
+    margin: 15px;
+    border-radius: 50%;
+}
+
+.features h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.features p {
+    font-size: 14px;
+    color: #000000;
+    /* margin: 10px; */
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Header Styling */
+header {
+    color: white;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+header .header-container h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1.5px;
+    margin: 10px;
+}
+
+/* Sign-Up Form Container Styling */
+.container {
+    background-color: white;
+    padding: 40px;
+    width: 400px;
+    box-shadow: 16px 16px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    animation: fadeIn 1.2s ease-in-out;
+    margin-top: 20px;
+    z-index: 1001;
+    /* To ensure the form is above the bubbles */
+}
+
+.container h2 {
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #000000;
+}
+
+/* Input Fields Styling */
+.input-field {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-field label {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    transform: translateY(15px);
+    color: #ffffff;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 10px;
+    border: 3px solid #000000;
+    outline: none;
+    background-color: rgb(90, 134, 255);
+    transition: 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.input-field input:focus,
+.input-field input:valid {
+    border-color: greenyellow;
+}
+
+.input-field input:focus~label,
+.input-field input:valid~label {
+    transform: translateY(-25px);
+    color: #0059ff;
+    font-size: 1.2rem;
+}
+
+/* Sign-Up Button Styling */
+.btn {
+    width: 50%;
+    background-color: #4c77f8;
+    /* border: none; */
+    padding: 10px;
+    color: white;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #373dfc;
+}
+
+.btn:active {
+    transform: scale(0.80);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 80%;
+    }
+}
+
+/* Bubbles Background Styling */
+.bubbles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+    /* Below form */
+}
+
+.bubble {
+    position: absolute;
+    left: var(--bubble-left-offset);
+    bottom: -75%;
+    display: block;
+    width: var(--bubble-radius);
+    height: var(--bubble-radius);
+    border-radius: 50%;
+    animation: float-up var(--bubble-float-duration) var(--bubble-float-delay) ease-in infinite;
+    background: hsla(199, 100%, 39%, 0.596);
+    animation: float-up var(--bubble-float-duration) var(--bubble-float-delay) ease-in infinite;
+}
+
+@keyframes float-up {
+    to {
+        transform: translateY(-175vh);
+    }
+}
+
+@keyframes sway-left-to-right {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes sway-right-to-left {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Bubble SASS converted manually */
+.bubble:nth-child(1) {
+    --bubble-left-offset: 10vw;
+    --bubble-radius: 5vw;
+    --bubble-float-duration: 10s;
+    --bubble-float-delay: 1s;
+}
+
+.bubble:nth-child(2) {
+    --bubble-left-offset: 30vw;
+    --bubble-radius: 4vw;
+    --bubble-float-duration: 8s;
+    --bubble-float-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+    --bubble-left-offset: 50vw;
+    --bubble-radius: 6vw;
+    --bubble-float-duration: 12s;
+    --bubble-float-delay: 1.5s;
+}
+
+/* Add more bubble settings as needed */
